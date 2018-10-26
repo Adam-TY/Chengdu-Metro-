@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php 
+    require_once('includes/db.php');
+    $query ="SELECT * FROM `chengdu-menu`; ";  
+    $result = mysqli_query($connection, $query);
+    if (!$result){
+        die("query is wrong");
+        }
+    $row = mysqli_fetch_array($result);
+ ?>
 <html lang="en">
 
   <head>
@@ -23,14 +32,14 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Welcome to Chengdu Metro</a>
+        <p class="navbar-brand" >Welcome to Chengdu Metro</p>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+              <a class="nav-link" href="#"><?php echo $row[top1] ; ?>
                 <span class="sr-only">(current)</span>
               </a>
             </li>
